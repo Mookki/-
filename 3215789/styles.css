@@ -1,0 +1,54 @@
+:root{
+  --accent:#0f62fe;
+  --accent-2:#0353a4;
+  --bg:linear-gradient(135deg,#e6f7ff 0%,#f3f6ff 100%);
+  --card:#ffffff;
+  --muted:#6b7280;
+  --radius:12px;
+  --shadow:0 8px 24px rgba(15,23,42,0.08);
+  --gap:12px;
+  --max-width:1200px;
+  --mobile:760px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, "Segoe UI", Tahoma, Arial, sans-serif;
+  background:var(--bg);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:28px 16px;
+  color:#0f172a;
+}
+.app{width:100%;max-width:var(--max-width)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+h1{margin:0;font-size:1.4rem}
+.lead{margin:6px 0 0;color:var(--muted)}
+.pill{background:#fff;padding:8px 12px;border-radius:999px;box-shadow:var(--shadow);font-weight:700}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px;margin-bottom:14px}
+.grid{display:grid;gap:10px}
+.cols-3{grid-template-columns:1fr 1fr 1fr}
+label{font-weight:700;color:#243b53}
+textarea{width:100%;min-height:120px;padding:10px;border-radius:8px;border:1px solid #e6eef8}
+input[type="text"], input, select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8}
+.hint{font-size:0.85rem;color:var(--muted);margin-bottom:6px}
+.actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px;flex-wrap:wrap}
+.btn{padding:10px 14px;border-radius:8px;border:none;cursor:pointer;color:#fff;background:var(--accent);font-weight:700}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(15,99,255,0.12)}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.btn.danger{background:#ff6b6b}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th,td{padding:10px;border-bottom:1px solid #eef2f7;text-align:center;font-size:0.95rem}
+th{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;position:sticky;top:0}
+.row-Понедельник td{background:#fff7fb}
+.row-Вторник td{background:#f7fff6}
+.row-Среда td{background:#f2f8ff}
+.row-Четверг td{background:#fffaf0}
+.row-Пятница td{background:#fbf5ff}
+.action-btn{padding:8px 10px;border-radius:8px;border:none;cursor:pointer;color:#fff;background:#ff7a2d}
+@media (max-width:var(--mobile)){
+  .cols-3{grid-template-columns:1fr}
+  table{min-width:600px}
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Автогенератор расписания — постоянные учителя</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div>
+        <h1>Автогенератор расписания</h1>
+        <p class="lead">Вводите всех учителей и классы — алгоритм назначит одного и того же учителя для каждого (класс, предмет).</p>
+      </div>
+      <div class="meta">
+        <div class="pill" id="totalCount">0 записей</div>
+      </div>
+    </header>
+
+    <section class="card inputs">
+      <div class="grid cols-3">
+        <div>
+          <label>Учителя (каждый в новой строке)</label>
+          <div class="hint">Формат: <code>ФИО|Предмет1,Предмет2,...</code></div>
+          <textarea id="teachers" placeholder="Иванов И.И.|Математика,Физика"></textarea>
+        </div>
+
+        <div>
+          <label>Классы и предметы (каждый в новой строке)</label>
+          <div class="hint">Формат: <code>Класс|Предмет1,Предмет2,...</code></div>
+          <textarea id="classes" placeholder="10A|Математика,Физика,Русский язык"></textarea>
+        </div>
+
+        <div>
+          <label>Время начала уроков (через запятую)</label>
+          <input id="times" placeholder="08:30,09:20,10:10,11:00,11:50,12:40,13:30" />
+          <label style="margin-top:8px">Режим</label>
+          <select id="mode">
+            <option value="6x4_7x1">4 дня по 6, 1 день по 7</option>
+            <option value="7x4_6x1">4 дня по 7, 1 день по 6</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="loadSample" class="btn ghost">Загрузить пример (30 учителей, 15 классов)</button>
+        <button id="generate" class="btn primary">Сгенерировать</button>
+        <button id="export" class="btn">Экспорт JSON</button>
+        <button id="import" class="btn ghost">Импорт JSON</button>
+        <button id="clear" class="btn danger">Очистить всё</button>
+      </div>
+    </section>
+
+    <section class="card table-wrap">
+      <table id="scheduleTable" aria-label="Таблица расписания">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Класс</th>
+            <th>День</th>
+            <th>Период</th>
+            <th>Время</th>
+            <th>Предмет</th>
+            <th>Учитель (постоянный)</th>
+            <th>Действие</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
